@@ -11,6 +11,7 @@ public class Temperature {
 		int i = 1;
 		Scanner userIn = new Scanner(System.in);
 
+		// Repeat the code until the user exits the menu
 		while (i == 1) {
 			System.out.println();
 			System.out.println("What system are you trying to convert?");
@@ -23,38 +24,39 @@ public class Temperature {
 			System.out.println("6. Kelvin to Celsius");
 			System.out.println("7. Return to previous menu");
 
-
+			// Take user input and parse to int. If invalid, set to zero.
 			option = userIn.nextLine();
-			
-			int x = 0;
-			double y = 0;
 
+			int select = 0;
+			double number = 0;
 
 			try {
-				x = Integer.parseInt(option);
+				select = Integer.parseInt(option);
 			} catch (Exception e) {
-				x = 0;
+				select = 0;
 			}
-			
-			if (x == 7) {
+
+			if (select == 7) {
 				userIn.close();
 				return;
 			}
+			// Accept number to convert as a double. If invalid, set to zero
+
 			System.out.println();
 			System.out.println("Convert what number?");
 
+			option = userIn.nextLine();
 
-			String option2 = userIn.nextLine();
-			
 			try {
-				y = Integer.parseInt(option2);
+				number = Integer.parseInt(option);
 			} catch (Exception e) {
-				y = 0;
+				number = 0;
 			}
-			
-			calc(x, y);
-			
-			
+
+			// Send the user input to calculation method
+
+			calc(select, number);
+
 		}
 		userIn.close();
 	}
@@ -62,6 +64,9 @@ public class Temperature {
 	protected void calc(int x, double y) {
 		double z = 0;
 		DecimalFormat numberFormat = new DecimalFormat("#.##");
+
+		// Analyze input and respond accordingly with the proper operation
+
 		switch (x) {
 		case 1:
 			z = ((y - 32) * 5 / 9);
