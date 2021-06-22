@@ -1,5 +1,6 @@
 package main;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Converter {
@@ -44,8 +45,7 @@ public class Converter {
 			case 3:
 				// Volume vol = new Volume();
 				// vol.run();
-				System.out.println("WIP");
-				break;
+				throw new NoSuchElementException("Sorry, I can't do that yet"); 
 			case 4:
 				System.exit(0);
 				break;
